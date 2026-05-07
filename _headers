@@ -1,0 +1,16 @@
+# Cloudflare Pages headers
+# Long cache for immutable assets; short cache for HTML so edits show up promptly.
+
+/styles.css
+  Cache-Control: public, max-age=3600
+
+/images/*
+  Cache-Control: public, max-age=86400
+
+/*.html
+  Cache-Control: public, max-age=300
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin

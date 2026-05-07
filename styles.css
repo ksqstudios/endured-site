@@ -1,0 +1,387 @@
+/* ──────────────────────────────────────────────────────────────────────
+   Endured — endured.app
+   Cream paper. Achromatic palette. Quiet typography.
+   ────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Palette — mirrors the app's Bone-to-Iron stages */
+  --paper:        #FAF5EC;   /* page background; matches the app */
+  --paper-deep:   #F0E6CB;   /* subtle inset, used for screenshot frames */
+  --graphite:     #2A2926;   /* primary text */
+  --slate:        #7A7567;   /* secondary text */
+  --hairline:     rgba(122, 117, 103, 0.18);
+
+  /* Type scale */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* Layout */
+  --max-content: 720px;       /* prose pages */
+  --max-wide:    1080px;      /* hero, screen grid */
+  --gutter:      24px;
+}
+
+/* ───────────────────── Reset / base ───────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--graphite);
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+a:hover { text-decoration-color: var(--graphite); }
+
+p { margin: 0 0 1.2em 0; }
+em { font-style: italic; }
+
+/* ───────────────────── Header ───────────────────── */
+
+.site-header {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 28px var(--gutter) 0;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--graphite);
+}
+
+.brand-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--slate);
+  letter-spacing: 0.01em;
+}
+
+/* ───────────────────── Main containers ───────────────────── */
+
+main {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+main.prose {
+  max-width: var(--max-content);
+}
+
+main > section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+main > section:first-child { padding-top: 80px; }
+main > section:last-child  { border-bottom: none; }
+
+/* ───────────────────── Hero ───────────────────── */
+
+.hero {
+  text-align: left;
+  padding-top: 120px !important;
+  padding-bottom: 100px !important;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 8vw, 92px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 32px 0;
+  max-width: 18ch;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero .lede {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--graphite);
+  max-width: 56ch;
+  margin: 0 0 40px 0;
+}
+
+.hero .coming-soon {
+  font-size: 14px;
+  color: var(--slate);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* ───────────────────── Section headings ───────────────────── */
+
+main h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 32px 0;
+}
+
+main h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px 0;
+  color: var(--graphite);
+}
+
+/* ───────────────────── The idea ───────────────────── */
+
+.idea {
+  max-width: 64ch;
+}
+
+.idea p {
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+/* ───────────────────── The app — screen grid ───────────────────── */
+
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 12px;
+}
+
+.screens-grid figure {
+  margin: 0;
+}
+
+.screens-grid img {
+  width: 100%;
+  border-radius: 28px;
+  background: var(--paper-deep);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(42, 41, 38, 0.08);
+}
+
+.screens-grid figcaption {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.5;
+  font-style: normal;
+}
+.screens-grid figcaption em {
+  font-style: italic;
+  color: var(--graphite);
+}
+
+/* ───────────────────── Also — numbered features ───────────────────── */
+
+.also-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin: 64px 0;
+}
+.also-item:first-of-type { margin-top: 12px; }
+.also-item:nth-child(odd of .also-item) {
+  /* Alternate sides — even items put image on the right */
+}
+.also-item:nth-of-type(even) {
+  direction: rtl;
+}
+.also-item:nth-of-type(even) > * {
+  direction: ltr;
+}
+
+.also-item img {
+  width: 100%;
+  border-radius: 24px;
+  background: var(--paper-deep);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(42, 41, 38, 0.08);
+}
+
+.also-text {
+  /* the text column */
+}
+
+.also-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--slate);
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+
+.also-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  margin: 0;
+}
+
+/* ───────────────────── Made by ───────────────────── */
+
+.madeby {
+  max-width: 60ch;
+}
+
+.madeby p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--graphite);
+}
+
+/* ───────────────────── Prose pages (privacy, support) ───────────────────── */
+
+main.prose h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 80px 0 12px 0;
+  color: var(--graphite);
+}
+
+main.prose .updated {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 48px;
+}
+
+main.prose h2 {
+  /* override the small-caps header style for prose pages */
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--graphite);
+  margin: 56px 0 16px 0;
+}
+
+main.prose h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  margin: 36px 0 8px 0;
+}
+
+main.prose p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--graphite);
+}
+
+main.prose {
+  padding-bottom: 100px;
+}
+
+/* ───────────────────── Footer ───────────────────── */
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  margin-top: 0;
+}
+
+.footer-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 32px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--slate);
+}
+
+.site-footer p { margin: 0; }
+
+.site-footer nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-footer a {
+  color: var(--slate);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--slate);
+  text-underline-offset: 3px;
+}
+
+/* ───────────────────── Responsive ───────────────────── */
+
+@media (max-width: 800px) {
+  body { font-size: 16px; }
+
+  .hero {
+    padding-top: 80px !important;
+    padding-bottom: 64px !important;
+  }
+  .hero .lede { font-size: 18px; }
+
+  main > section { padding: 56px 0; }
+
+  .screens-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .also-item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 56px 0;
+  }
+  .also-item:nth-of-type(even) { direction: ltr; }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-top: 20px;
+  }
+  .brand-tag { font-size: 12px; }
+}
