@@ -345,6 +345,34 @@ main.prose {
   text-underline-offset: 3px;
 }
 
+/* ───────────────────── Fade-in on scroll ───────────────────── */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* will-change keeps the transition smooth on long pages without
+     leaving compositor layers around forever; we drop it once visible. */
+  will-change: opacity, transform;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ───────────────────── Responsive ───────────────────── */
 
 @media (max-width: 800px) {
