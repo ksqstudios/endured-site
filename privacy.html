@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Privacy — Endured</title>
-<meta name="description" content="Endured does not collect any data about you. No accounts, no servers, no tracking.">
+<meta name="description" content="Endured collects no data about you. No account, no servers of ours, no tracking. Your sessions sync through your own private iCloud.">
 <link rel="canonical" href="https://endured.app/privacy">
 <meta name="theme-color" content="#FAF5EC">
 
@@ -34,15 +34,18 @@
 
   <h1>Privacy</h1>
 
-  <p class="updated">Last updated: May 6, 2026</p>
+  <p class="updated">Last updated: June 4, 2026</p>
 
   <p>
-    Endured does not collect any data about you. There are no accounts. There is no server. Nothing about your sessions, your usage, or your device is sent anywhere outside your phone.
+    Endured does not collect any data about you. There is no account to create, and KSQ Studios runs no servers of its own. Your sessions sync across your devices through your own private iCloud, where only you can see them. We never receive a copy.
   </p>
 
-  <h2>What stays on your device</h2>
+  <h2>Where your sessions live</h2>
   <p>
-    Every session you record — start time, end time, elapsed duration, end reason — is stored in a local SwiftData database on your iPhone. This data is included in iCloud device backups if you have those enabled, but Endured itself does not sync it anywhere or read it back from any external service.
+    Every session you record, including its start time, end time, elapsed duration, and end reason, is stored in a local SwiftData database on your iPhone and synced across your devices through Apple's CloudKit. That sync uses the private database of your personal iCloud account: the data is encrypted, tied to your Apple ID, and reaches only the devices you are signed in on, such as your iPhone and iPad. KSQ Studios has no servers involved, cannot access it, and never receives a copy. If you sign out of iCloud, Endured keeps working with the sessions already on your device.
+  </p>
+  <p>
+    If you also have iCloud Backup enabled, this data may be included in your device backup, encrypted under your Apple ID, per your iCloud settings.
   </p>
 
   <h2>Apple Health</h2>
@@ -55,7 +58,7 @@
 
   <h2>No third-party services in the app</h2>
   <p>
-    Endured the iOS app contains no third-party analytics SDKs, no tracking pixels, no advertising, and no telemetry. There is nothing in the app that sends data to a server when you use it.
+    Endured the iOS app contains no third-party analytics SDKs, no tracking pixels, no advertising, and no telemetry. The only data that leaves the app is the iCloud sync described above, which goes to your own private iCloud, and the optional Health write you choose to allow.
   </p>
 
   <h2>This website</h2>
