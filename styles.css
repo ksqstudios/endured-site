@@ -171,7 +171,7 @@ main h3 {
 
 .screens-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin-top: 12px;
 }
@@ -374,6 +374,12 @@ main.prose {
 }
 
 /* ───────────────────── Responsive ───────────────────── */
+
+@media (max-width: 1000px) {
+  .screens-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 800px) {
   body { font-size: 16px; }
