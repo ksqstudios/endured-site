@@ -46,12 +46,12 @@
 
   <h3>I started a session and locked my phone. Was that broken?</h3>
   <p>
-    No. The Live Activity continues your session on the lock screen and in the Dynamic Island. Locking the phone, switching apps, putting it down — all of these are normal interactions that Endured was built to expect. A session ends only when you tap End in the app.
+    No. The Live Activity continues your session on the lock screen and in the Dynamic Island. Locking the phone, switching apps, putting it down — all of these are normal interactions that Endured was built to expect. A session ends when you end it: in the app, on the Live Activity, on your Apple Watch, or by asking Siri.
   </p>
 
   <h3>What counts as a "broken" session?</h3>
   <p>
-    In v1, no automatic action breaks a session — sessions are either finished deliberately (you tap End) or interrupted by the system (the app is force-quit). Endured preserves the broken state in its data model for a future addition: a "bail" affordance on the Live Activity that lets you explicitly stop a session you've decided not to finish.
+    A session is broken when you tap Bail rather than End, whether in the app, on the Live Activity, or on your Apple Watch. It is recorded as interrupted if the app was force quit while a session was running, in which case Endured records that it began and was interrupted, and claims no duration it cannot know. Broken and interrupted sessions sit in History with the same weight as finished ones, labelled plainly and never dimmed or struck through.
   </p>
 
   <h3>Why don't I see streaks or daily totals?</h3>
@@ -59,14 +59,27 @@
     Endured is built around the premise that the work is the point, not the metric. The History screen shows your sessions grouped by day with day totals; that's the most aggregation Endured does. If you want longer-term tracking of your focus time, Apple Health surfaces it as Mindful Minutes in the Mindfulness section.
   </p>
 
+  <h3>Does the Apple Watch app need my iPhone nearby?</h3>
+  <p>
+    No. If your iPhone is nearby, it records the session and the watch shows it, which is what keeps the Live Activity running on the phone. If your iPhone is not nearby, the watch records the session itself, and it syncs across when the two are together again. The point of focusing is often to get away from the phone, so the watch does not need it.
+  </p>
+
+  <h3>Can I start a session without opening the app?</h3>
+  <p>
+    Yes. Ask Siri to begin a focus session, or use the actions in the Shortcuts app. Beginning opens Endured so the session and its Live Activity can start; ending works without leaving whatever you are doing.
+  </p>
+
   <h3>How do I move my data to a new phone?</h3>
   <p>
-    Endured's data is included in standard iCloud device backups and iPhone-to-iPhone transfers. There is no manual export or sign-in. When you set up a new iPhone from a backup, your sessions come with it.
+    Your sessions sync across your devices through your own private iCloud, so signing in on a new iPhone brings them with you. They are also included in standard iCloud device backups and iPhone-to-iPhone transfers. If you want a copy of the record outside the app, Settings has an Export sessions option that writes the whole thing to a CSV file.
   </p>
 
   <h3>Can I delete my data?</h3>
   <p>
-    Yes — uninstall Endured. Because all data is stored locally on your device, removing the app removes all of it, immediately and completely. There is no cloud copy and no account to delete.
+    Yes. Settings has an Erase all sessions option. It permanently deletes every recorded session from your device and from your iCloud, which means it clears them on your other devices too. There is no account to delete, since Endured never had one.
+  </p>
+  <p>
+    Uninstalling the app removes the copy on that device, but sessions that have synced to your iCloud stay there until you erase them. Sessions already written to Apple Health also stay, and can be removed in the Health app.
   </p>
 
 </main>
@@ -77,7 +90,7 @@
     <nav>
       <a href="/privacy">Privacy</a>
       <a href="/support">Support</a>
-      <a href="mailto:support@ksqstudios.com">Email</a>
+      <a href="mailto:techsupport@ksqstudios.com">Email</a>
     </nav>
   </div>
 </footer>

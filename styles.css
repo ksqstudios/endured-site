@@ -234,6 +234,14 @@ main h3 {
   /* the text column */
 }
 
+/* A feature with nothing worth photographing. Single column so it does not
+   leave an empty half, and capped so the line length still reads. */
+.also-item.text-only {
+  grid-template-columns: 1fr;
+  max-width: 64ch;
+  direction: ltr;
+}
+
 .also-num {
   display: block;
   font-family: var(--serif);
