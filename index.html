@@ -3,200 +3,196 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Endured — Hard work, honestly recorded.</title>
-<meta name="description" content="A focus session recorder for iPhone, iPad, and Apple Watch. The gradient deepens as the session does. Tap End when you're done — the record stays as it was.">
-
-<!-- Open Graph -->
+<title>Endured, hard work honestly recorded</title>
+<meta name="description" content="A focus session recorder for iPhone, iPad, and Apple Watch. The gradient deepens as the session does. Tap End when you're done, and the record stays as it was.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://endured.app">
-<meta property="og:title" content="Endured — Hard work, honestly recorded.">
-<meta property="og:description" content="A focus session recorder for iPhone, iPad, and Apple Watch. The gradient deepens as the session does. Tap End when you're done — the record stays as it was.">
+<meta property="og:title" content="Endured, hard work honestly recorded">
+<meta property="og:description" content="A focus session recorder for iPhone, iPad, and Apple Watch. The gradient deepens as the session does. Tap End when you're done, and the record stays as it was.">
 <meta property="og:image" content="https://endured.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Endured — Hard work, honestly recorded.">
+<meta name="twitter:title" content="Endured, hard work honestly recorded">
 <meta name="twitter:description" content="A focus session recorder for iPhone, iPad, and Apple Watch.">
 <meta name="twitter:image" content="https://endured.app/og-image.png">
-
 <link rel="canonical" href="https://endured.app">
-<meta name="theme-color" content="#FAF5EC">
-
-<!-- Favicon -->
+<meta name="theme-color" content="#f5f1e8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..500;9..144,300..500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- Styles -->
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-
-<!-- Scripts -->
 <script defer src="/scripts.js"></script>
-
 </head>
-
 <body>
 
-<header class="site-header">
-  <a href="/" class="brand">Endured</a>
-  <span class="brand-tag">A focus session recorder</span>
+<header class="bar">
+  <div class="bar-inner">
+    <a class="mark" href="/">Endured</a>
+    <nav aria-label="Site">
+      <a href="/support">Support</a>
+      <a class="bar-cta" href="https://apps.apple.com/us/app/endured/id6766737964" rel="noopener">Get Endured</a>
+    </nav>
+  </div>
 </header>
 
-<main>
+<!-- The page is a session. Reading down it is time passing: each section
+     sits at the depth the app gives that many minutes, Bone at the top and
+     Iron at ninety, and the meter in the corner reads the elapsed time from
+     how far down you are. -->
+<main id="session">
 
-  <section class="hero fade-in">
-    <h1>
-      Hard work,<br>
-      <em>honestly recorded.</em>
-    </h1>
-    <p class="lede">
-      Endured records focus sessions. The gradient deepens as the session does. Tap End when you're done — and the record stays as it was.
-    </p>
-    <a href="https://apps.apple.com/us/app/endured/id6766737964" rel="noopener" style="display: inline-block; font-family: var(--sans); font-size: 14px; color: var(--graphite); text-decoration: none; padding: 10px 18px; border: 1px solid var(--hairline); border-radius: 999px; letter-spacing: 0.02em; transition: border-color 120ms ease, background 120ms ease;">Download on the App Store</a>
-  </section>
-
-  <section class="idea fade-in">
-    <h2>The idea</h2>
-
-    <p>
-      Most focus apps want to coach you. Streaks to defend. Daily goals. Encouraging notifications when you've fallen behind. Animations that celebrate completed Pomodoros. Productivity scores aggregated across weeks and months.
-    </p>
-
-    <p>
-      Endured doesn't do any of that. The premise is much smaller — that the work itself is the point, and the most a tool should do is sit with you while you do it, then write down what happened.
-    </p>
-
-    <p>
-      You tap Begin. A gradient fills the screen, the lightest stage. As the minutes accumulate the gradient deepens — Stone at ten, Slate at twenty‑five, Graphite at fifty, Iron at ninety. You tap End when you're done. The session is saved as it was: duration, depth reached, the date. If you stopped early, that's the record. If you went long, that's the record too.
-    </p>
-
-    <p>
-      No streaks. No daily goals. No notifications. No productivity score. Sessions can sync to Apple Health as Mindful Minutes, if you allow it. Everything else syncs across your devices through your own private iCloud, and we never see it.
-    </p>
-  </section>
-
-  <section class="screens fade-in">
-    <h2>The app</h2>
-
-    <div class="screens-grid">
-      <figure>
-        <img src="/images/tonight.png" alt="The Tonight screen, mid-session, with a Slate-stage gradient backdrop and the elapsed time in large serif type.">
-        <figcaption>
-          <em>Tonight — the live record. The gradient deepens as the session does.</em>
-        </figcaption>
-      </figure>
-
-      <figure>
-        <img src="/images/history.png" alt="The History screen, showing past sessions grouped by day with stage chips and elapsed times.">
-        <figcaption>
-          <em>History — a ledger of every session, finished or broken.</em>
-        </figcaption>
-      </figure>
-
-      <figure>
-        <img src="/images/live-activity.png" alt="The lock screen showing an active Endured session as a Live Activity, with the gradient backdrop and live-ticking elapsed time.">
-        <figcaption>
-          <em>Live Activity and Widgets — lock the phone. The session continues. Your history right on the lock screen.</em>
-        </figcaption>
-      </figure>
-
-      <figure>
-        <img src="/images/trends.png" alt="The Trends screen showing total focus time, the spread of depths reached, a time-of-day histogram, and the longest sessions.">
-        <figcaption>
-          <em>Trends, the long view of your sessions.</em>
-        </figcaption>
-      </figure>
+  <section class="stage stage--bone" data-minute="0" data-stage="Bone">
+    <div class="stage-inner hero">
+      <p class="depth"><span>Bone</span> the first ten minutes</p>
+      <h1>Hard work, honestly recorded.</h1>
+      <p class="lede">
+        Endured records focus sessions. The gradient deepens as the session
+        does. Tap End when you're done, and the record stays as it was.
+      </p>
+      <p class="buy">
+        <a class="button" href="https://apps.apple.com/us/app/endured/id6766737964" rel="noopener">Download on the App Store</a>
+        <span>iPhone, iPad and Apple Watch.</span>
+      </p>
+      <p class="hint">This page is a session. Read down it and the time runs.</p>
     </div>
   </section>
 
-  <section class="idea fade-in">
-    <h2>Over time</h2>
-    <p>
-      Alongside the live screen and the history, Endured keeps a long view of your sessions, gathered across a week, a month, or all of them. It shows the total time you've put in, the spread of depths you reached, when in the day you tend to begin, and the longest you've sat.
-    </p>
-    <p>
-      Most apps would turn a screen like this into a game. Endured doesn't. The numbers rise and fall as your weeks vary, and the app has no opinion about which way is better. It shows you what happened. What it means is yours to decide.
-    </p>
-  </section>
-
-  <section class="idea fade-in">
-    <h2>On your wrist</h2>
-    <p>
-      Endured records on Apple Watch, with or without your iPhone in the room. Begin from your wrist and the session is kept there, then synced back when the two are together again. The point of focusing is often to get away from the phone, so the watch does not need it.
-    </p>
-    <p>
-      The complication shows the session running and the depth it has reached, and shows nothing at all when no session is running. There is no total on the watch face to glance at, and nothing to keep up.
-    </p>
-  </section>
-
-  <section class="also fade-in">
-    <h2>Also</h2>
-
-    <div class="also-item">
-      <img src="/images/also-01-gradient.png" alt="The five-stage Bone-to-Iron gradient, shown as a continuous vertical band.">
-      <div class="also-text">
-        <span class="also-num">01</span>
-        <h3>The gradient.</h3>
-        <p>Sessions deepen visually as they run — Bone for the first ten minutes, then Stone, Slate, Graphite, Iron at ninety. Five stages, one continuous transition.</p>
+  <section class="stage stage--stone" data-minute="10" data-stage="Stone">
+    <div class="stage-inner">
+      <p class="depth"><span>Stone</span> at ten minutes</p>
+      <h2>The work itself is the point</h2>
+      <div class="prose">
+        <p>
+          Most focus apps want to coach you. Streaks to defend. Daily goals.
+          Encouraging notifications when you've fallen behind. Animations
+          that celebrate completed Pomodoros. Productivity scores aggregated
+          across weeks and months.
+        </p>
+        <p>
+          Endured doesn't do any of that. The premise is much smaller: the
+          work itself is the point, and the most a tool should do is sit with
+          you while you do it, then write down what happened.
+        </p>
+        <p>
+          You tap Begin. The lightest stage fills the screen. As the minutes
+          accumulate it deepens: Stone at ten, Slate at twenty-five, Graphite
+          at fifty, Iron at ninety. You tap End when you're done, and the
+          session is saved as it was: duration, depth reached, the date. If
+          you stopped early, that's the record. If you went long, that's the
+          record too.
+        </p>
       </div>
     </div>
-
-    <div class="also-item">
-      <img src="/images/also-02-honest.png" alt="A history detail showing a broken session displayed with the same dignity as a finished one.">
-      <div class="also-text">
-        <span class="also-num">02</span>
-        <h3>Honest by default.</h3>
-        <p>Broken sessions count, with equal weight. There are no streaks, no goals, no goading notifications. The record is what happened, not what should have.</p>
-      </div>
-    </div>
-
-    <div class="also-item">
-      <img src="/images/also-03-data.png" alt="The Settings screen showing the iCloud sync row and the Apple Health row, both indicating sync is on.">
-      <div class="also-text">
-        <span class="also-num">03</span>
-        <h3>Yours, across your devices.</h3>
-        <p>Your sessions sync across your iPhone, iPad, and Apple Watch through your own private iCloud, encrypted under your Apple ID. Completed sessions can also write to Apple Health as Mindful Minutes, if you opt in. You can export the whole record as a CSV, or erase it entirely, whenever you like. No account, no servers of ours, no tracking, and nothing we can see.</p>
-      </div>
-    </div>
-    <div class="also-item text-only">
-      <div class="also-text">
-        <span class="also-num">04</span>
-        <h3>Begin without looking.</h3>
-        <p>Ask Siri to begin a focus session, or put the action in a Shortcut. Beginning opens Endured so the session and its gradient can start; ending works without leaving whatever you are doing.</p>
-      </div>
-    </div>
-
   </section>
 
-  <section class="madeby fade-in">
-    <h2>Made by</h2>
-    <p>
-      Endured is designed, built, and supported by one person — Kurt Klein — in Berwyn, Pennsylvania, under <a href="https://ksqstudios.com">KSQ Studios</a>.
-    </p>
-    <p>
-      If you've used it and want to say hello, report a bug, or suggest something: <a href="mailto:techsupport@ksqstudios.com">techsupport@ksqstudios.com</a>.
-    </p>
+  <section class="stage stage--slate" data-minute="25" data-stage="Slate">
+    <div class="stage-inner">
+      <p class="depth"><span>Slate</span> at twenty-five minutes</p>
+      <h2>Four screens, nothing else</h2>
+      <div class="screens">
+        <figure>
+          <img src="/images/tonight.png" alt="Tonight in Endured: a session five seconds in, the Bone stage, with End and Bail." width="1320" height="2868" loading="lazy">
+          <figcaption>Tonight. The live record, deepening as the session does.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/history.png" alt="History in Endured: today's sessions, from 0:10 in Bone to 38:26 in Slate, with one bailed." width="1320" height="2868" loading="lazy">
+          <figcaption>History. Every session, finished or broken.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/live-activity.png" alt="A Lock Screen Live Activity for a running Endured session, with Today and Last 7 days widgets." width="1320" height="2868" loading="lazy">
+          <figcaption>Lock the phone. The session continues on the Lock Screen.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/trends.png" alt="Insight in Endured: 1h 6m endured this week across five sessions, with depths, time of day and the longest sessions." width="1320" height="2868" loading="lazy">
+          <figcaption>Insight. The long view, with no opinion about it.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage stage--graphite" data-minute="50" data-stage="Graphite">
+    <div class="stage-inner">
+      <p class="depth"><span>Graphite</span> at fifty minutes</p>
+      <h2>Over time, on your wrist, unfolded</h2>
+      <div class="columns">
+        <div>
+          <h3>Over time</h3>
+          <p>
+            Insight gathers your sessions across a week, a month, or all of
+            them: the total time, the spread of depths, when in the day you
+            tend to begin, and the longest you've sat. The numbers rise and
+            fall as your weeks vary, and the app has no opinion about which
+            way is better.
+          </p>
+        </div>
+        <div>
+          <h3>On your wrist</h3>
+          <p>
+            Endured records on Apple Watch, with or without your iPhone in the
+            room, and syncs when the two are together again. The complication
+            shows the session running and its depth, and nothing at all when
+            no session is running.
+          </p>
+        </div>
+        <div>
+          <h3>Begin without looking</h3>
+          <p>
+            Ask Siri to begin a focus session, or put the action in a
+            Shortcut. Ending works without leaving whatever you are doing.
+          </p>
+        </div>
+      </div>
+      <figure class="duo">
+        <img src="/images/duo.png" alt="Endured on the unfolded iPhone Duo: a session at 1:00:30 in Graphite on the right, the record of past sessions on the left." width="1600" height="1125" loading="lazy">
+        <figcaption>On iPhone Duo, the session holds beside its record. New in 2.1, along with a dark appearance.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage stage--iron" data-minute="90" data-stage="Iron">
+    <div class="stage-inner">
+      <p class="depth"><span>Iron</span> at ninety minutes</p>
+      <h2>Honest by default</h2>
+      <dl class="terms">
+        <div><dt>Broken sessions</dt><dd>Count, with equal weight. The record is what happened, not what should have.</dd></div>
+        <div><dt>Streaks, goals, scores</dt><dd>None. No notifications nudging you back.</dd></div>
+        <div><dt>Your data</dt><dd>Synced across iPhone, iPad and Apple Watch through your own private iCloud. Sessions can write to Apple Health as Mindful Minutes if you opt in. Export it all as a CSV, or erase it, whenever you like.</dd></div>
+        <div><dt>Account, servers, tracking</dt><dd>None. There is nothing for us to see.</dd></div>
+      </dl>
+      <p class="buy">
+        <a class="button" href="https://apps.apple.com/us/app/endured/id6766737964" rel="noopener">Download on the App Store</a>
+      </p>
+      <p class="maker">
+        Endured is designed, built, and supported by one person, Kurt Klein,
+        in Berwyn, Pennsylvania, under <a href="https://ksqstudios.com">KSQ Studios</a>.
+        To say hello, report a bug, or suggest something, write to
+        <a href="mailto:techsupport@ksqstudios.com">techsupport@ksqstudios.com</a>.
+      </p>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="Footer">
+        <a href="/privacy">Privacy</a>
+        <a href="/support">Support</a>
+        <a href="https://ksqstudios.com">KSQ Studios</a>
+      </nav>
+      <p>2026 KSQ Studios LLC. Endured is made in Berwyn, Pennsylvania.</p>
+    </footer>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <p>© 2026 KSQ Studios LLC · Endured</p>
-    <nav>
-      <a href="/privacy">Privacy</a>
-      <a href="/support">Support</a>
-      <a href="mailto:techsupport@ksqstudios.com">Email</a>
-    </nav>
-  </div>
-</footer>
+<!-- The meter. It reads the elapsed time from where you are on the page,
+     and End keeps whatever it says, like the app does. -->
+<aside class="meter" id="meter" aria-label="Session on this page">
+  <p class="meter-time" id="meter-time">0:00:00</p>
+  <p class="meter-stage" id="meter-stage">Bone</p>
+  <button type="button" class="meter-end" id="meter-end">End</button>
+  <p class="meter-note" id="meter-note" role="status"></p>
+</aside>
 
 </body>
 </html>

@@ -1,429 +1,355 @@
-/* ──────────────────────────────────────────────────────────────────────
-   Endured — endured.app
-   Cream paper. Achromatic palette. Quiet typography.
-   ────────────────────────────────────────────────────────────────────── */
+/*
+  endured.app
+
+  The page is a session. It runs through the app's five stages from top to
+  bottom, Bone, Stone, Slate, Graphite and Iron, each section sitting at the
+  minute the app reaches that depth. A meter in the corner reads the
+  elapsed time from how far down you are, and End keeps whatever it says.
+
+  Spectral, light and austere, for display and the meter. Public Sans for
+  text. Nothing else: no color beyond the five stages.
+
+  No analytics. The privacy policy says the site collects nothing, so keep
+  it that way.
+*/
 
 :root {
-  /* Palette — mirrors the app's Bone-to-Iron stages */
-  --paper:        #FAF5EC;   /* page background; matches the app */
-  --paper-deep:   #F0E6CB;   /* subtle inset, used for screenshot frames */
-  --graphite:     #2A2926;   /* primary text */
-  --slate:        #7A7567;   /* secondary text */
-  --hairline:     rgba(122, 117, 103, 0.18);
+  --bone: #f5f1e8;
+  --stone: #c9c2b0;
+  --slate: #6f6a5c;
+  --graphite: #3f3d38;
+  --iron: #1a1917;
 
-  /* Type scale */
-  --serif: 'Fraunces', Georgia, serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --ink-dark: #24231f;
+  --ink-light: #f7f3ea;
 
-  /* Layout */
-  --max-content: 720px;       /* prose pages */
-  --max-wide:    1080px;      /* hero, screen grid */
-  --gutter:      24px;
+  --display: Spectral, "Iowan Old Style", Georgia, serif;
+  --body: "Public Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --page: 70rem;
+  --measure: 36rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --band: clamp(6rem, 14vw, 11rem);
 }
 
-/* ───────────────────── Reset / base ───────────────────── */
-
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+
+html { -webkit-text-size-adjust: 100%; background: var(--iron); }
+
 body {
   margin: 0;
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--graphite);
-  background: var(--paper);
+  background: var(--bone);
+  color: var(--ink-dark);
+  font-family: var(--body);
+  font-size: 1.1rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 img { max-width: 100%; height: auto; display: block; }
 
-a {
-  color: var(--graphite);
-  text-decoration: underline;
-  text-decoration-color: var(--hairline);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: text-decoration-color 0.15s ease;
+a { color: inherit; text-underline-offset: 0.2em; }
+
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+
+h1 { font-weight: 200; }
+h2 { font-weight: 300; font-size: clamp(2.2rem, 4.8vw, 3.8rem); line-height: 1.05; margin-bottom: 2rem; }
+h3 { font-weight: 500; font-size: 1.35rem; margin-bottom: 0.5rem; }
+
+p { margin: 0 0 1rem; }
+
+.button {
+  display: inline-block;
+  background: var(--ink-dark);
+  color: var(--bone);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
 }
-a:hover { text-decoration-color: var(--graphite); }
 
-p { margin: 0 0 1.2em 0; }
-em { font-style: italic; }
+.stage--iron .button { background: var(--bone); color: var(--iron); }
 
-/* ───────────────────── Header ───────────────────── */
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 2rem;
+}
 
-.site-header {
-  max-width: var(--max-wide);
+.buy span { font-size: 0.98rem; opacity: 0.75; }
+
+/* ---------- Bar ---------- */
+
+.bar { position: absolute; inset: 0 0 auto; z-index: 3; }
+
+.bar-inner {
+  max-width: var(--page);
   margin: 0 auto;
-  padding: 28px var(--gutter) 0;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mark {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.bar nav { display: flex; align-items: center; gap: 1.5rem; font-weight: 500; font-size: 1rem; }
+.bar nav a { text-decoration: none; }
+.bar nav a:hover { text-decoration: underline; }
+.bar-cta { border: 1px solid currentColor; padding: 0.35rem 1rem; border-radius: 999px; }
+
+/* ---------- Stages ---------- */
+
+.stage { position: relative; }
+
+/* Each stage begins with a band that carries the previous depth into its
+   own, so the page is one continuous gradient like the app's. */
+.stage--bone { background: var(--bone); color: var(--ink-dark); }
+.stage--stone { background: linear-gradient(var(--bone), var(--stone) var(--band)); color: var(--ink-dark); }
+.stage--slate { background: linear-gradient(var(--stone), var(--slate) var(--band)); color: var(--ink-light); }
+.stage--graphite { background: linear-gradient(var(--slate), var(--graphite) var(--band)); color: var(--ink-light); }
+.stage--iron { background: linear-gradient(var(--graphite), var(--iron) var(--band)); color: var(--ink-light); }
+
+.stage-inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: var(--band) var(--gutter) clamp(4rem, 9vw, 7rem);
+}
+
+/* The depth marker: the stage name and the minute it begins. */
+.depth {
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
 }
 
-.brand {
-  font-family: var(--serif);
+.depth span {
+  font-family: var(--display);
   font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  color: var(--graphite);
+  font-size: 1.5rem;
+  opacity: 1;
 }
 
-.brand-tag {
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--slate);
-  letter-spacing: 0.01em;
+.depth::before {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
+  align-self: center;
 }
 
-/* ───────────────────── Main containers ───────────────────── */
+/* Hero */
 
-main {
-  max-width: var(--max-wide);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-
-main.prose {
-  max-width: var(--max-content);
-}
-
-main > section {
-  padding: 80px 0;
-  border-bottom: 1px solid var(--hairline);
-}
-main > section:first-child { padding-top: 80px; }
-main > section:last-child  { border-bottom: none; }
-
-/* ───────────────────── Hero ───────────────────── */
-
-.hero {
-  text-align: left;
-  padding-top: 120px !important;
-  padding-bottom: 100px !important;
-}
+.hero { padding-top: clamp(9rem, 18vw, 13rem); min-height: 88vh; }
 
 .hero h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(48px, 8vw, 92px);
-  line-height: 1.05;
+  font-size: clamp(3.6rem, 10vw, 8.5rem);
+  line-height: 0.95;
   letter-spacing: -0.02em;
-  margin: 0 0 32px 0;
-  max-width: 18ch;
+  max-width: 11ch;
 }
-.hero h1 em {
+
+.lede { margin-top: 2rem; font-size: 1.3rem; max-width: 30rem; }
+
+.hint {
+  margin-top: clamp(3rem, 8vw, 6rem);
+  font-family: var(--display);
   font-style: italic;
   font-weight: 300;
+  font-size: 1.2rem;
+  opacity: 0.75;
 }
 
-.hero .lede {
-  font-size: 20px;
-  line-height: 1.55;
-  color: var(--graphite);
-  max-width: 56ch;
-  margin: 0 0 40px 0;
-}
+/* Prose */
 
-.hero .coming-soon {
-  font-size: 14px;
-  color: var(--slate);
-  letter-spacing: 0.02em;
-  margin: 0;
-}
+.prose { max-width: var(--measure); }
+.prose p { font-size: 1.15rem; }
 
-/* ───────────────────── Section headings ───────────────────── */
+/* Screens */
 
-main h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin: 0 0 32px 0;
-}
-
-main h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0 0 12px 0;
-  color: var(--graphite);
-}
-
-/* ───────────────────── The idea ───────────────────── */
-
-.idea {
-  max-width: 64ch;
-}
-
-.idea p {
-  font-size: 19px;
-  line-height: 1.65;
-}
-
-/* ───────────────────── The app — screen grid ───────────────────── */
-
-.screens-grid {
+.screens {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-top: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
-.screens-grid figure {
-  margin: 0;
+.screens figure { margin: 0; }
+
+.screens img {
+  border-radius: clamp(16px, 2vw, 28px);
+  box-shadow: 0 20px 40px rgba(26, 25, 23, 0.3);
 }
 
-.screens-grid img {
-  width: 100%;
-  border-radius: 28px;
-  background: var(--paper-deep);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 12px 32px rgba(42, 41, 38, 0.08);
-}
+.screens figcaption { margin-top: 1rem; font-size: 0.98rem; }
 
-.screens-grid figcaption {
-  margin-top: 18px;
-  font-size: 14px;
-  color: var(--slate);
-  line-height: 1.5;
-  font-style: normal;
-}
-.screens-grid figcaption em {
-  font-style: italic;
-  color: var(--graphite);
-}
+/* Graphite */
 
-/* ───────────────────── Also — numbered features ───────────────────── */
-
-.also-item {
+.columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  margin: 64px 0;
-}
-.also-item:first-of-type { margin-top: 12px; }
-.also-item:nth-child(odd of .also-item) {
-  /* Alternate sides — even items put image on the right */
-}
-.also-item:nth-of-type(even) {
-  direction: rtl;
-}
-.also-item:nth-of-type(even) > * {
-  direction: ltr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
 }
 
-.also-item img {
-  width: 100%;
-  border-radius: 24px;
-  background: var(--paper-deep);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 12px 32px rgba(42, 41, 38, 0.08);
+.columns p { font-size: 1rem; opacity: 0.88; }
+
+.duo { margin: clamp(3rem, 7vw, 5rem) 0 0; }
+
+.duo img {
+  border: 10px solid #0e0e0c;
+  border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
-.also-text {
-  /* the text column */
+.duo figcaption { margin-top: 1rem; font-size: 0.98rem; opacity: 0.85; max-width: var(--measure); }
+
+/* Iron */
+
+.terms { margin: 0; max-width: 52rem; border-top: 1px solid rgba(247, 243, 234, 0.4); }
+
+.terms div {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(247, 243, 234, 0.16);
 }
 
-/* A feature with nothing worth photographing. Single column so it does not
-   leave an empty half, and capped so the line length still reads. */
-.also-item.text-only {
-  grid-template-columns: 1fr;
-  max-width: 64ch;
-  direction: ltr;
-}
+.terms dt { font-family: var(--display); font-size: 1.25rem; }
+.terms dd { margin: 0; opacity: 0.85; }
 
-.also-num {
-  display: block;
-  font-family: var(--serif);
-  font-size: 13px;
-  color: var(--slate);
-  letter-spacing: 0.18em;
-  margin-bottom: 12px;
-}
+.maker { margin-top: 3rem; max-width: var(--measure); font-size: 1rem; opacity: 0.8; }
 
-.also-text p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--graphite);
-  margin: 0;
-}
-
-/* ───────────────────── Made by ───────────────────── */
-
-.madeby {
-  max-width: 60ch;
-}
-
-.madeby p {
-  font-size: 17px;
-  line-height: 1.65;
-  color: var(--graphite);
-}
-
-/* ───────────────────── Prose pages (privacy, support) ───────────────────── */
-
-main.prose h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(40px, 6vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 80px 0 12px 0;
-  color: var(--graphite);
-}
-
-main.prose .updated {
-  font-size: 13px;
-  color: var(--slate);
-  margin-bottom: 48px;
-}
-
-main.prose h2 {
-  /* override the small-caps header style for prose pages */
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  text-transform: none;
-  color: var(--graphite);
-  margin: 56px 0 16px 0;
-}
-
-main.prose h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 18px;
-  margin: 36px 0 8px 0;
-}
-
-main.prose p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--graphite);
-}
-
-main.prose {
-  padding-bottom: 100px;
-}
-
-/* ───────────────────── Footer ───────────────────── */
-
-.site-footer {
-  border-top: 1px solid var(--hairline);
-  margin-top: 0;
-}
-
-.footer-inner {
-  max-width: var(--max-wide);
+.foot {
+  max-width: var(--page);
   margin: 0 auto;
-  padding: 32px var(--gutter);
-  display: flex;
-  justify-content: space-between;
+  padding: 2rem var(--gutter) 7rem;
+  border-top: 1px solid rgba(247, 243, 234, 0.14);
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.foot nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 0.75rem; }
+.foot p { margin: 0; }
+
+/* ---------- The meter ---------- */
+
+.meter {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 13px;
-  color: var(--slate);
+  gap: 0 1rem;
+  padding: 0.7rem 0.8rem 0.7rem 1.2rem;
+  border-radius: 20px;
+  background: var(--meter-bg, var(--bone));
+  color: var(--meter-ink, var(--ink-dark));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(127, 127, 127, 0.25);
+  transition: background-color 0.6s ease, color 0.6s ease;
+  max-width: calc(100vw - 2rem);
 }
 
-.site-footer p { margin: 0; }
-
-.site-footer nav {
-  display: flex;
-  gap: 24px;
+.meter-time {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
-.site-footer a {
-  color: var(--slate);
-  text-decoration: none;
-}
-.site-footer a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--slate);
-  text-underline-offset: 3px;
-}
-
-/* ───────────────────── Fade-in on scroll ───────────────────── */
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-  /* will-change keeps the transition smooth on long pages without
-     leaving compositor layers around forever; we drop it once visible. */
-  will-change: opacity, transform;
+.meter-stage {
+  grid-column: 1;
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-  will-change: auto;
+.meter-end {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--meter-bg, var(--bone));
+  background: var(--meter-ink, var(--ink-dark));
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fade-in,
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+.meter-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.88rem;
+  max-width: 17rem;
 }
 
-/* ───────────────────── Responsive ───────────────────── */
+.meter-note:empty { display: none; }
+.meter-note:not(:empty) { margin-top: 0.6rem; }
 
-@media (max-width: 1000px) {
-  .screens-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.meter.is-ended .meter-time { opacity: 0.9; }
+
+/* ---------- Document pages: privacy, support, event ---------- */
+
+.doc-page { background: var(--bone); }
+
+.doc {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(7rem, 12vw, 9rem) var(--gutter) clamp(4rem, 8vw, 6rem);
 }
 
-@media (max-width: 800px) {
-  body { font-size: 16px; }
+.doc h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); line-height: 1; letter-spacing: -0.02em; }
+.doc .updated { margin-top: 1rem; opacity: 0.75; }
+.doc h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 3rem 0 1rem; }
+.doc h3 { margin-top: 2rem; }
+.doc ul, .doc ol { padding-left: 1.2rem; }
+.doc li { margin-bottom: 0.4rem; }
+.doc .duo { margin: 2.5rem 0; }
 
-  .hero {
-    padding-top: 80px !important;
-    padding-bottom: 64px !important;
-  }
-  .hero .lede { font-size: 18px; }
-
-  main > section { padding: 56px 0; }
-
-  .screens-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .also-item {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin: 56px 0;
-  }
-  .also-item:nth-of-type(even) { direction: ltr; }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.doc-foot {
+  background: var(--iron);
+  color: var(--ink-light);
 }
 
-@media (max-width: 520px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding-top: 20px;
-  }
-  .brand-tag { font-size: 12px; }
+.doc-foot .foot { border-top: 0; padding-bottom: 3rem; }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 56rem) {
+  .screens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .columns { grid-template-columns: minmax(0, 1fr); }
+  .terms div { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .duo img { border-width: 6px; border-radius: 16px; }
+  .bar nav { gap: 1rem; }
+}
+
+/* On a phone the meter shrinks to a slip at the foot of the screen. */
+@media (max-width: 34rem) {
+  .meter { padding: 0.45rem 0.5rem 0.45rem 0.9rem; border-radius: 16px; gap: 0 0.75rem; }
+  .meter-time { font-size: 1.3rem; }
+  .meter-stage { font-size: 0.68rem; margin-top: 0.1rem; }
+  .meter-end { font-size: 0.85rem; padding: 0.4rem 0.85rem; }
+  .meter-note { font-size: 0.8rem; max-width: 14rem; }
+  .foot { padding-bottom: 6rem; }
 }

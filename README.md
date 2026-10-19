@@ -1,8 +1,8 @@
 # endured-site
 
-Marketing site for Endured — endured.app.
+Marketing site for Endured, endured.app.
 
-Static HTML/CSS, deployed via Cloudflare Pages with GitHub auto-deploy.
+Static HTML/CSS, set in Spectral and Public Sans. The home page is a session: it runs Bone to Iron from top to bottom, and a meter reads the elapsed time from how far down you are. Deployed via Cloudflare Pages with GitHub auto-deploy.
 
 ## Structure
 
@@ -11,7 +11,9 @@ Static HTML/CSS, deployed via Cloudflare Pages with GitHub auto-deploy.
 ├── index.html         # marketing page
 ├── privacy.html       # privacy policy (linked from app Settings)
 ├── support.html       # support page with FAQ
+├── event/duo.html     # 2.1 release page (deep link target)
 ├── styles.css         # shared stylesheet
+├── scripts.js         # the session meter on the home page
 ├── _headers           # Cloudflare Pages cache + security headers
 └── images/            # screenshots and assets (see below)
 ```
@@ -46,4 +48,4 @@ Custom domain `endured.app` configured in Cloudflare Pages → Custom domains.
 
 ## Analytics
 
-Plausible Analytics on `endured.app`. No cookies, no personal data. Privacy policy references this.
+None. The privacy policy says the site collects nothing: no analytics, no cookies, no third-party scripts. Keep it that way.
